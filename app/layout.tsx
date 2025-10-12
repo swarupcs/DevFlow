@@ -17,8 +17,11 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Stackify',
-  description: '“The next evolution of developer Q&A.”',
+  title: "Stackify",
+  description: "“The next evolution of developer Q&A.”",
+  icons: {
+    icon: "/images/site-logo.svg",
+  },
 };
 
 export default function RootLayout({
