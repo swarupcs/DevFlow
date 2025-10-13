@@ -48,6 +48,15 @@
 
   /* Border Radius */
   --radius: 8px;
+  --radius-2: 8px;
+  --radius-1_5: 6px;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Background Images */
+  --bg-auth-dark: url("/images/auth-dark.png");
+  --bg-auth-light: url("/images/auth-light.png");
 }
 
 @plugin "@tailwindcss/typography";
