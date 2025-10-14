@@ -8,7 +8,7 @@ import Navbar from "@/components/navigation/navbar";
 import ThemeProvider from "@/context/Theme";
 import { auth } from "@/auth";
 import { Toaster } from "sonner";
-import { async } from './../node_modules/@auth/core/jwt';
+import { async } from "./../node_modules/@auth/core/jwt";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -38,6 +38,13 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <SessionProvider session={session}>
         <body
           className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
