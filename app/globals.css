@@ -58,7 +58,6 @@
   --bg-auth-dark: url("/images/auth-dark.png");
   --bg-auth-light: url("/images/auth-light.png");
 }
-
 @plugin "@tailwindcss/typography";
 
 @layer base {
