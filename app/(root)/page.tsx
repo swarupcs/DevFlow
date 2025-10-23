@@ -4,8 +4,9 @@ import QuestionCard from "@/components/cards/QuestionCard";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-import handleError from "@/lib/handlers/error";
+
 import { api } from "@/lib/api";
+import { auth } from "@/auth";
 
 const questions = [
   {
@@ -48,22 +49,14 @@ const questions = [
   },
 ];
 
-const test = async () => {
-  try {
-    return await api.users.getAll();
-  } catch (error) {
-    return handleError(error);
-  }
-};
-
 interface SearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
-    const users = await test();
+  const session = await auth();
 
-    console.log(users);
+  console.log("Session: ", session);
   const { query = "", filter = "" } = await searchParams;
 
   const filteredQuestions = questions.filter((question) => {
