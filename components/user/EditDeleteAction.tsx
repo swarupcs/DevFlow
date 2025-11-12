@@ -39,6 +39,7 @@ const EditDeleteAction = ({ type, itemId }: Props) => {
       });
     } else if (type === "Answer") {
       // Call API to delete answer
+      await deleteAnswer({ answerId: itemId });
 
       toast({
         title: "Answer deleted",
