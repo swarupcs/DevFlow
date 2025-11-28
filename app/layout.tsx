@@ -23,7 +23,7 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Stackify",
+  title: "DevFlow",
   description: "“The next evolution of developer Q&A.”",
   icons: {
     icon: "/images/site-logo.svg",
