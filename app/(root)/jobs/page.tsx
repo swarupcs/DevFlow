@@ -19,7 +19,8 @@ const Page = async ({ searchParams }: RouteParams) => {
   const countries = await fetchCountries();
   const parsedPage = parseInt(page ?? 1);
 
-  console.log(jobs);
+  // console.log("jobs", jobs);
+  console.log("countries", countries);
 
   return (
     <>
