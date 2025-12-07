@@ -8,9 +8,16 @@ export const fetchCountries = async () => {
   try {
     const response = await fetch("https://restcountries.com/v3.1/all");
     const result = await response.json();
+
+    if (!Array.isArray(result)) {
+      console.warn("fetchCountries returned non-array:", result);
+      return undefined;
+    }
+
     return result;
   } catch (error) {
     console.log(error);
+    return undefined;
   }
 };
 

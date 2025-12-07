@@ -26,7 +26,6 @@ const JobsFilter = ({ countriesList }: JobsFilterProps) => {
 
   console.log({ countriesList });
 
-
   const handleUpdateParams = (value: string) => {
     const newUrl = formUrlQuery({
       params: searchParams.toString(),
@@ -62,7 +61,7 @@ const JobsFilter = ({ countriesList }: JobsFilterProps) => {
 
         <SelectContent className="body-semibold max-h-[350px] max-w-[250px]">
           <SelectGroup>
-            {countriesList ? (
+            {countriesList && countriesList.length > 0 ? (
               countriesList.map((country: Country) => (
                 <SelectItem
                   key={country.name.common}

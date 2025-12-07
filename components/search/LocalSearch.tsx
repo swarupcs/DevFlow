@@ -39,7 +39,9 @@ const LocalSearch = ({
           value: searchQuery,
         });
 
-        router.push(newUrl, { scroll: false });
+        if (searchQuery !== query) {
+          router.push(newUrl, { scroll: false });
+        }
       } else {
         if (pathname === route) {
           const newUrl = removeKeysFromUrlQuery({
@@ -47,13 +49,15 @@ const LocalSearch = ({
             keysToRemove: ["query"],
           });
 
-          router.push(newUrl, { scroll: false });
+          if (query) {
+            router.push(newUrl, { scroll: false });
+          }
         }
       }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchQuery, router, route, searchParams, pathname]);
+  }, [searchQuery, router, route, searchParams, pathname, query]);
 
   return (
     <div
