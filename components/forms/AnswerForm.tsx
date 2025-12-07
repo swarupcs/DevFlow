@@ -58,28 +58,20 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
       if (result.success) {
         form.reset();
 
-        toast({
-          title: "Success",
-          description: "Your answer has been posted successfully",
-        });
+        toast.success("Your answer has been posted successfully");
 
         if (editorRef.current) {
           editorRef.current.setMarkdown("");
         }
       } else {
-        toast({
-          title: "Error",
-          description: result.error?.message,
-          variant: "destructive",
-        });
+        toast.error(result.error?.message || "Something went wrong");
       }
     });
   };
 
   const generateAIAnswer = async () => {
     if (session.status !== "authenticated") {
-      return toast({
-        title: "Please log in",
+      return toast.info("Please log in", {
         description: "You need to be logged in to use this feature",
       });
     }
@@ -96,11 +88,7 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
       );
 
       if (!success) {
-        return toast({
-          title: "Error",
-          description: error?.message,
-          variant: "destructive",
-        });
+        return toast.error(error?.message || "Something went wrong");
       }
 
       const formattedAnswer = data.replace(/<br>/g, " ").toString().trim();
@@ -112,18 +100,15 @@ const AnswerForm = ({ questionId, questionTitle, questionContent }: Props) => {
         form.trigger("content");
       }
 
-      toast({
-        title: "Success",
+      toast.success("Success", {
         description: "AI generated answer has been generated",
       });
     } catch (error) {
-      toast({
-        title: "Error",
+      toast.error("Error", {
         description:
           error instanceof Error
             ? error.message
             : "There was a problem with your request",
-        variant: "destructive",
       });
     } finally {
       setIsAISubmitting(false);

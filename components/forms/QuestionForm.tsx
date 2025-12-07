@@ -26,6 +26,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
+import { toast } from "sonner";
 
 const Editor = dynamic(() => import("@/components/editor"), {
   ssr: false,
@@ -101,17 +102,12 @@ const QuestionForm = ({ question, isEdit = false }: Params) => {
         });
 
         if (result.success) {
-          toast({
-            title: "Success",
-            description: "Question updated successfully",
-          });
+          toast.success("Question updated successfully");
 
           if (result.data) router.push(ROUTES.QUESTION(result.data._id));
         } else {
-          toast({
-            title: `Error ${result.status}`,
+          toast.error(`Error ${result.status}`, {
             description: result.error?.message || "Something went wrong",
-            variant: "destructive",
           });
         }
 
@@ -121,17 +117,12 @@ const QuestionForm = ({ question, isEdit = false }: Params) => {
       const result = await createQuestion(data);
 
       if (result.success) {
-        toast({
-          title: "Success",
-          description: "Question created successfully",
-        });
+        toast.success("Question created successfully");
 
         if (result.data) router.push(ROUTES.QUESTION(result.data._id));
       } else {
-        toast({
-          title: `Error ${result.status}`,
+        toast.error(`Error ${result.status}`, {
           description: result.error?.message || "Something went wrong",
-          variant: "destructive",
         });
       }
     });
