@@ -3,11 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import { auth, signOut } from "@/auth";
+
 import ROUTES from "@/constants/routes";
 
 import NavLinks from "./navbar/NavLinks";
 import { Button } from "../ui/button";
+import { auth, signOut } from "../../../auth";
 
 const LeftSidebar = async () => {
   const session = await auth();

@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { auth } from "@/auth";
+
 import AnswerCard from "@/components/cards/AnswerCard";
 import QuestionCard from "@/components/cards/QuestionCard";
 import TagCard from "@/components/cards/TagCard";
@@ -21,6 +21,7 @@ import {
   getUserStats,
   getUserTopTags,
 } from "@/lib/actions/user.action";
+import { auth } from "../../../../../auth";
 
 const ProfilePage = async ({ params, searchParams }: RouteParams) => {
   const { id } = await params;

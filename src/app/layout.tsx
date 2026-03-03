@@ -6,9 +6,10 @@ import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
 import Navbar from "@/components/navigation/navbar";
 import ThemeProvider from "@/context/Theme";
-import { auth } from "@/auth";
+
 import { Toaster } from "sonner";
-import { async } from "./../node_modules/@auth/core/jwt";
+// import { async } from "./../node_modules/@auth/core/jwt";
+import { auth } from "../../auth";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",

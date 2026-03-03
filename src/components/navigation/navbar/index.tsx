@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { auth } from "@/auth";
+
 import GlobalSearch from "@/components/search/GlobalSearch";
 import UserAvatar from "@/components/UserAvatar";
 import ROUTES from "@/constants/routes";
 
 import MobileNavigation from "./MobileNavigation";
 import Theme from "./Theme";
+import { auth } from "../../../../auth";
 
 const Navbar = async () => {
   const session = await auth();

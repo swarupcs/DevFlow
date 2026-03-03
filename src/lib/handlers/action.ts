@@ -3,10 +3,11 @@
 import { Session } from "next-auth";
 import { ZodError, ZodSchema } from "zod";
 
-import { auth } from "@/auth";
+
 
 import { UnauthorizedError, ValidationError } from "../http-errors";
 import dbConnect from "../mongoose";
+import { auth } from "../../../auth";
 
 type ActionOptions<T> = {
   params?: T;

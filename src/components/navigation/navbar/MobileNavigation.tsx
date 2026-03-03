@@ -2,7 +2,7 @@ import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { auth, signOut } from "@/auth";
+
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -14,6 +14,7 @@ import {
 import ROUTES from "@/constants/routes";
 
 import NavLinks from "./NavLinks";
+import { auth, signOut } from "../../../../auth";
 
 const MobileNavigation = async () => {
   const session = await auth();
